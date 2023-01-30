@@ -42,18 +42,55 @@ main()
   // 3 -- explore signed versus unsigned datatypes and their interactions
   printf("\n\n PART 3 ----------\n");
 
-  uchar1 = 0xFF;
-  uchar2 = 0xFE;
-  schar1 = 0xFF;
-  schar2 = 0xFE;
+  uchar1 = 0xFF; //255
+  uchar2 = 0xFE; //254
+  schar1 = 0xFF; //-1
+  schar2 = 0xFE; //-2
 
   printf("\n uchar1 = %d ", uchar1);
   printf("\n schar1 = %d ", schar1);
+  //printf("\n schar1 = %d ", schar2);
 
   // uchar1 and schar1 have different outputs becuase they were intialized as different variable types. schar is a signed integer so it is represented in 2s complement so if the first bit is a 1 then the value is negative.
 
-  
+ //compare uchar
+  if ( uchar1 > uchar2 ) {
+    printf("\n uchar1 is larger ");
+  }
+  else {
+    printf("\n uchar2 is larger ");
+  }
+  if ( uchar1 == uchar2 )
+  {
+    printf("\n uchar1 and uchar2 have the same value ");
+  }
 
+  //compare schar
+  if ( schar1 > schar2 ) {
+    printf("\n schar1 is larger ");
+  }
+  else {
+    printf("\n schar2 is larger ");
+  }
+  if ( schar1 == schar2 )
+  {
+    printf("\n schar1 and schar2 have the same value ");
+  }
+
+  //compare mix of schar and uchar
+  if ( uchar1 > schar1 ) {
+    printf("\n uchar1 is larger ");
+  }
+  else {
+    printf("\n schar1 is larger ");
+  }
+
+  //adding schar and uchar
+  printf("\n The sum of schar1 and uchar1 = %d ", (uchar1 + schar1));
+  printf("\n The sum of schar2 and uchar2 = %d ", (schar2 + uchar2));
+
+  //The output of these operations is what I expected as if it is a signed int, then it is adding adding the to values but one is negated which acts as subtraction
+  
   // 4 -- Booleans
   printf("\n\n PART 4 ----------\n");
 
