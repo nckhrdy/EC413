@@ -86,26 +86,51 @@ main()
   }
 
   //adding schar and uchar
-  printf("\n The sum of schar1 and uchar1 = %d ", (uchar1 + schar1));
-  printf("\n The sum of schar2 and uchar2 = %d ", (schar2 + uchar2));
+  printf("\n The sum of schar1 and schar2 = %d ", (schar1 + schar2));
+  printf("\n The sum of uchar1 and uchar2 = %d ", (uchar1 + uchar2));
 
   //The output of these operations is what I expected as if it is a signed int, then it is adding adding the to values but one is negated which acts as subtraction
-  
+  printf("\n The sum of schar1 and uchar1 = %d ", (schar1 + uchar1));
+  //The output is what I expected the addition to be. It added the two values with one being negated which acted as a subtraction
+
   // 4 -- Booleans
   printf("\n\n PART 4 ----------\n");
 
   x = 1; y = 2;
+  //false output
+  printf("\n Boolean False = %d ", (x == y));
+  // true output
+  printf("\n Boolean True = %d ", (x != y));
+  // size of boolean expression
+  printf("\n Boolean Size = %d bytes", sizeof(x == y));
 
+  //& v && operators
+  printf("\n Boolean & = %d ", (x & y));
+  printf("\n Boolean && = %d ", (x && y));
 
+  //~ v ! operators
+  printf("\n Boolean ~ = %d ", (~x)); //not 01 = 10
+  printf("\n Boolean ! = %d ", (!x)); //not x = 0
+  
 
   // 5 -- shifts
   printf("\n\n PART 5 ----------\n");
 
   shift_char = 15;
-  i = 1;
+  i = 2;
 
-  printf("\n shift_char << %d = %d", i, shift_char << i);
+  printf("\n shift_char << %d = %d", i, shift_char << i); //shifting bits left 2
+  printf("\n shift_char << %d = %d", i, shift_char >> i); //shifting bits right 2
 
+  //shift larger than 3
+  printf("\n shift_char << %d = %d", i, shift_char << 4); 
+
+  //if you shift left more than 3 places you are simply appending 0s to the binary value
+
+  //shift larger than 7
+  printf("\n shift_char << %d = %d", i, shift_char << 8);
+
+  //value again increases, if you shift more than 3 or 7 to the right you will reach 0 
 
   // 6 -- pointer basics
   printf("\n\n PART 6 ----------\n");
@@ -114,9 +139,33 @@ main()
   printf("\nstart %d %d %d %d %d %d %d \n",
 	 a[0], *(ip), *(ip+1), *ip++, *ip, *(ip+3), *(ip-1));
 
+  //want  (10 10 20 10 20 50 10)
+
+  //new shifted array using pointers
+  printf("\nstart %d %d %d %d %d %d %d \n",
+	 (a[0])+10, *(ip), *(ip+1), *ip++, *ip, *(ip+3), *(ip-1));
+
+  printf("\n The size of the integer pointer data type is %d ", sizeof(&ip));
 
   // 7 -- programming with pointers
-  printf("\n\n PART 7 ----------\n");
+  printf("\n\n PART 7 ----------\n\n");
+
+  //reverse using No pointers
+  int n = 10;
+  for (int i = 0, j = n - 1; i < n / 2; i++, j--)
+  {
+    int temp = a[i];
+    b[j] = a[i];
+    b[i] = a[j];
+    a[j] = temp;
+  }
+  //printing b[]
+  for (int i = 0; i < n; i++) {
+    printf(" %d ", b[i]);
+  }
+
+  //reverse using pointers
+  
 
 
   // 8 -- strings
