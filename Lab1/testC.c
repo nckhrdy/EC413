@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 // SOLUTION FILE
 
 main()
@@ -21,7 +22,7 @@ main()
   int *ip, *ip2;
   int j, k;
 
-  char AString[] = "HAL";           // 8
+  char AString[] = "HAL 60";           // 8
 
   // 1 -- change "World" to your name
   printf("\n\n PART 1 ---------\n");
@@ -165,15 +166,46 @@ main()
   }
 
   //reverse using pointers
-  
+  int *start = a;
+  int *end = a + n - 1;
+  int *cstart = c + n - 1;
 
+  while (start <= end) {
+    *cstart = *start;
+    start++;
+    cstart--;
+  }
+
+  for (int i = 0; i < n; i++)
+  {
+    printf("%d ", c[i]);
+  }
 
   // 8 -- strings
   printf("\n\n PART 8 ----------\n");
 
+  for (int i = 0; i <= strlen(AString); i++)
+  {
+    printf("%c = %d \n ", AString[i]+1, AString[i]+1);
+  }
+
+
   printf("\n %s \n", AString);
 
+  //inside the for loop, iterating up until the last slot of the array we see that the value 0 is output. The value 0 is stored at the end of the char array to serve as a terminator 
 
+  //adding 1 to each character changes the letter and value tht is then output
+
+  //adding 60 after the last char results in the addition of a letter after the null character
+
+  for (int i = 0; i <= strlen(AString); i++)
+  {
+    printf("%c = %d \n ", AString[i], AString[i]);
+    if ( i == strlen(AString))
+    {
+      printf("%c = %d \n", AString[i - 1] + 60, AString[i - 1] + 60);
+    }
+  }
 
   // 9 -- address calculation
   printf("\n\n PART 9 ----------\n");
@@ -181,7 +213,10 @@ main()
 
   ip = a;
   ip2 = b;
-  for (k = 0; k < 10; k++) *ip2++ = *ip++;     // indirect reference to array element
+  for (k = 0; k < 10; k++) {
+    *ip2++ = *ip++;
+    printf("\n %d , %d ", &ip, &ip2);
+  } // indirect reference to array element
 
   // all done
   printf("\n\n ALL DONE\n");
