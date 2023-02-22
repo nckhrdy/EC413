@@ -60,9 +60,9 @@ module 64Bit_adder_tb;
 		begin
 		if(error_flag)
 			// Use $display here instead of $monitor
-			// $monitor will display the message whenever there's a change of a, b, c_in
+			// $monitor will display the message whenever there's a change of A, B, c_in
 			// $display will only display once when it's been executed
-			$display("Error occurs when a = %d, b = %d, c_in = %d\n", a, b, c_in);
+			$display("Error occurs when A = %d, B = %d, c_in = %d\n", A, B, c_in);
 		end
 		
 	// Derfine clk signal for Verfication purpose
@@ -72,14 +72,14 @@ module 64Bit_adder_tb;
 		// Initialize Inputs
 		clk = 0;
 		
-		A = 0;
-		B = 0;
+		A = 64'b0;
+		B = 64'b0;
 		c_in = 1;
 
 		// Wait 10 ns
 		#10;
-		A = 1;
-		B = 0;
+		A = 64'b1;
+		B = 64'b0;
 		c_in = 1;
 
 	end
