@@ -32,6 +32,6 @@ module 64Bit_adder(c_in, sum, A, B, c_out);
   16Bit_adder 16B_A1(w1, sum[15:0], A[15:0], B[15:0], c_in);
   16Bit_adder 16B_A2(w1, sum[31:16], A[31:16], B[31:16], w1);
   16Bit_adder 16B_A3(w1, sum[47:32], A[47:32], B[47:32], w2);
-  16Bit_adder 16B_A4(cout, sum[63:48], A[63:48], B[63:48], w3);
+  16Bit_adder 16B_A4(c_out, sum[63:48], A[63:48], B[63:48], w3);
   
 endmodule
