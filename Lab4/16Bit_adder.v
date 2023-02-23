@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: 
+// Engineer: Nicholas Hardy
 // 
 // Create Date: 02/22/2023 12:16:00 PM
 // Design Name: 

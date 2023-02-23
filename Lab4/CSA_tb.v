@@ -5,7 +5,7 @@
 // 
 // Create Date: 02/22/2023 12:16:00 PM
 // Design Name: 
-// Module Name: 64Bit_adder_tb
+// Module Name: 16Bit_adder
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -18,9 +18,9 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module 64Bit_adder_tb;
-  
-  // Inputs
+module CSA_tb(); 
+
+// Inputs
   reg [63:0] A;
   reg [63:0] B;
   reg c_in;
@@ -35,7 +35,7 @@ module 64Bit_adder_tb;
   wire [63:0] sum_verify;
   
   // Instantiate the Unit Under Test (UUT)
-	64Bit_adder 64uut (
+	64Bit_csa CSAuut (
 		.c_out(c_out), 
 		.sum(sum), 
 		.A(A), 
@@ -44,7 +44,7 @@ module 64Bit_adder_tb;
 	);
 	
 	// Verification module
-	Verification64bit Verification (
+	Verification_csa Verification (
 		.c_out(c_out_verify), 
 		.sum(sum_verify), 
 		.A(A), 
