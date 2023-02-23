@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module 64Bit_adder_tb;
+module B64Bit_adder_tb;
   
   // Inputs
   reg [63:0] A;
@@ -35,7 +35,7 @@ module 64Bit_adder_tb;
   wire [63:0] sum_verify;
   
   // Instantiate the Unit Under Test (UUT)
-	64Bit_adder 64uut (
+	B64Bit_adder B64uut (
 		.c_out(c_out), 
 		.sum(sum), 
 		.A(A), 

@@ -35,7 +35,7 @@ module CSA_tb();
   wire [63:0] sum_verify;
   
   // Instantiate the Unit Under Test (UUT)
-	64Bit_csa CSAuut (
+	B64Bit_csa CSAuut (
 		.c_out(c_out), 
 		.sum(sum), 
 		.A(A), 

@@ -5,7 +5,7 @@
 // 
 // Create Date: 02/22/2023 12:16:00 PM
 // Design Name: 
-// Module Name: 64Bit_adder
+// Module Name: 16Bit_adder
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -18,20 +18,21 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module 64Bit_adder(c_in, sum, A, B, c_out);
+module B16Bit_adder(c_in, sum, A, B, c_out);
   
-  input [63:0] A;
-  input [63:0] B; 
+  input [15:0] A;
+  input [15:0] B; 
   input c_in;
   
-  output [63:0] sum; 
+  output [15:0] sum; 
   output c_out; 
   
   wire w1, w2, w3; 
   
-  16Bit_adder 16B_A1(w1, sum[15:0], A[15:0], B[15:0], c_in);
-  16Bit_adder 16B_A2(w1, sum[31:16], A[31:16], B[31:16], w1);
-  16Bit_adder 16B_A3(w1, sum[47:32], A[47:32], B[47:32], w2);
-  16Bit_adder 16B_A4(c_out, sum[63:48], A[63:48], B[63:48], w3);
+  four_bitadder B4B_A1(w1, sum[3:0], A[3:0], B[3:0], c_in);
+  four_bitadder B4B_A2(w2, sum[7:4],A[7:4], B[7:4], w1);
+  four_bitadder B4B_A3(w3, sum[11:8],A[11:8], B[11:8], w2);
+  four_bitadder B4B_A4(c_out, sum[15:12],A[15:12], B[15:12], w3);
   
 endmodule
+  

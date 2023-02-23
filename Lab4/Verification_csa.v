@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module Verification_csa(c_out, sum, a, b, c_in);
+module Verification_csa(c_out, sum, A, B, c_in);
 
 	input [63:0] A;    
 	input [63:0] B; 
