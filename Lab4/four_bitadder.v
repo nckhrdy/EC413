@@ -27,7 +27,7 @@ input [3:0] B;
 input c_in;
 
 output c_out;
-output sum[3:0];
+    output [3:0] sum;
 
 
 wire [4:0] c;
