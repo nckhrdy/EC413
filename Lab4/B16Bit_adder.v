@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module B16Bit_adder(c_in, sum, A, B, c_out);
+module B16Bit_adder(c_out, sum, A, B, c_in);
   
   input [15:0] A;
   input [15:0] B; 
