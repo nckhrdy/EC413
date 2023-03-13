@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module Verification_RegAdder(c_out,a,b,c_in,select,clk);
   parameter n=8; 
   input [n-1:0] a; 
