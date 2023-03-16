@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 03/13/2023 01:40:39 PM
+// Create Date: 10/03/2022 12:45:26 PM
 // Design Name: 
-// Module Name: Nbit_Register
+// Module Name: AND_T_3
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,21 +19,16 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+`define	D		0	// definition of the delay
 
-module Nbit_Register(out0, in0, clk);
+// Delayed AND gate
 
-parameter n = 8; 
-input [n-1:0] in0;
-output [n-1:0] out0;
-input clk;
+module AND_T_3(out, in1, in2, in3);
 
-genvar i;
+input in1, in2, in3;
+output out;
 
-generate 
-for (i=0;i<n;i=i+1)
-begin:registerblkss
-dff Dflipflop(out0[i], in0[i], clk);
-end
-endgenerate
+and		#`D		and1(out, in1, in2, in3);
+
 
 endmodule

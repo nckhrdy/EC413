@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 03/13/2023 02:03:01 PM
+// Create Date: 10/03/2022 12:46:31 PM
 // Design Name: 
-// Module Name: Nbit_NOT
+// Module Name: AND_T_2
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,18 +20,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Nbit_NOT(out, in);
+`define	D		0	// definition of the delay
 
-parameter n = 8;
-input [n-1:0] in;
-output [n-1:0] out;
+// Delayed AND gate
 
-genvar i; 
+module AND_T_2(out, in1, in2);
 
-generate
-for (i=0;i<n;i=i+1)
-begin
-not(out[i],in[i]);
-end
-endgenerate
+input in1, in2;
+output out;
+
+and		#`D		and1(out, in1, in2);
+
+
 endmodule

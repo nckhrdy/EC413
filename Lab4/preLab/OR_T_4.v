@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 03/13/2023 01:50:58 PM
+// Create Date: 10/03/2022 12:47:55 PM
 // Design Name: 
-// Module Name: Nbit_Register_tb
+// Module Name: OR_T_4
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -18,35 +18,16 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+`define	D		0	// definition of the delay
+
+// Delayed OR gate
+
+module OR_T_4(out, in1, in2, in3, in4);
+
+input in1, in2, in3, in4;
+output out;
+
+or		#`D		or1 (out, in1, in2, in3, in4);
 
 
-module Nbit_Register_tb;
-
-parameter n=16;
-
-reg [n-1:0] d;
-reg clk;
-
-wire [n-1:0] q;
-
-Nbit_Register #(n) registerTest (
-       .out0(q),
-       .in0(d),
-       .clk(clk)
-);
-
-initial begin
-    d = 0;
-    clk = 0;
-    
-    #100;
-    
-end
-    
-always 
-#5 clk = ~clk;
-
-always 
-#20 d = d+1;    
-    
 endmodule
