@@ -39,11 +39,24 @@ wire AND_out;
 wire NOR_out; 
 wire NAND_out; 
 wire SLT_out; 
+wire c_out_add;
+wire c_out_sub;
+wire not_b;
 
-wire addORsubb_select = (ALop == 3'b101);
+wire addORsubb_select;
+
+assign addORsubb_select = (ALop == 3'b101);
 
 not not1(not_b,b);
 
+MOV1bit mov(MOV_out,a);
+NOT1bit not(NOT_out,a);
+FA_str adder(c_out_add,ADD_out,a,b,c_in);
+FA_str subtracter(c_out_sub,SUB_out,a,not_b,c_in);
+OR1bit Or(OR_out,a,b);
+AND1bit And(AND_out,a,b);
 
+MUXadd aMux(c_out,c_out_add,c_out_sub,addORsubb_select);
+MUX_3_to_8 t2eMux(result,MOV_out,NOT_out,ADD_out,SUB_out,OR_out,AND_out,NOR_out,NAND_out,SLT_out,ALop);
 
 endmodule
