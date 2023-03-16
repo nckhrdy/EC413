@@ -42,7 +42,39 @@ Nbit_RegAdd #(.n(x)) RegAdder (
     .sum(result),
     .select(select),
     .b(b),
-    .clk(clk));
+    .clk(clk)
+);
     
-    Verification_RegAdder #
+    Verification_RegAdder #(.n(x)) Verify(
+        .c_out(c_out_verify),
+        .sum(sum_verify), 
+        .a(a),
+        .b(b), 
+        .clk(clk)
+    );
+    
+    assign error_flag = (c_out != c_out_verify || result != sum_verify);
+    
+    always@(posedge clk)
+        begin
+            if(error_flag == 1'b1)
+                $display("Error occurs when a = %d, b = %d, c_in = %d, select = %d \n", a, b, c_in, select);
+        end
+    
+    initial begin 
+        c_in = 0; 
+        a = 0; 
+        a = 3'd7; 
+        b = 0;
+        clk = 0; 
+        select = 0;
+    end
+    
+    always #5 clk = ~clk;
+    
+    always@(posedge clk) 
+        begin 
+            {c_in, a, b, select} <= {c_in, a, b, select} + 1'b1;
+        end
+            
 endmodule
